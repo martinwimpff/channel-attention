@@ -1,0 +1,39 @@
+# general
+dataset_name: "bcic2a"
+subject_ids: "all"  # either "all" or integer
+max_epochs: 1000
+seed: 0
+
+# preprocessing
+preprocessing:
+  sfreq: 250
+  low_cut: null
+  high_cut: null
+  start: -0.5
+  stop: 0.0
+  z_scale: True
+  batch_size: 64
+
+# model
+model: "ATCNet"
+model_kwargs:
+  F1: 16
+  kernel_length_conv: 64
+  pool_length: 8
+  D: 2
+  in_channels: 22
+  dropout_conv: 0.3
+  d_model: 32
+  key_dim: 8
+  n_head: 2
+  dropout_attn: 0.5
+  tcn_depth: 2
+  kernel_length_tcn: 4
+  dropout_tcn: 0.3
+  n_classes: 4
+  n_windows: 5
+  lr: 0.0009
+  beta_1: 0.5
+  weight_decay: 0.0
+  optimizer: "adam"
+  scheduler: False
