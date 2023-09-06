@@ -1,0 +1,34 @@
+# general
+dataset_name: "bcic2a"
+subject_ids: "all"  # either "all" or integer
+max_epochs: 500
+seed: 0
+
+# preprocessing
+preprocessing:
+  sfreq: 128
+  low_cut: 0
+  high_cut: 40
+  start: 0.5
+  stop: -1.5  # 4 second trial -> [0.5, 2.5]
+  z_scale: True
+  batch_size: 64
+
+# model
+model: "EEGNet"
+model_kwargs:
+  n_classes: 4
+  in_channels: 22
+  input_window_samples: 256
+  F1: 8
+  D: 2
+  F2: 16  # F1 * D
+  drop_prob: 0.5
+  kernel_length: 32
+  pool_time_length: 4
+  pool_time_stride: 4
+  kernel_length_dw_sep: 16
+  lr: 0.001
+  weight_decay: 0.0
+  optimizer: "adam"
+  scheduler: False
