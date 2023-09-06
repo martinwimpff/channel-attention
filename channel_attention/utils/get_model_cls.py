@@ -3,6 +3,7 @@ from channel_attention.models import (
     BaseNet,
     EEGConformer,
     EEGNet,
+    EEGTCNet,
     ShallowNet,
     TSSEFFNet
 )
@@ -13,6 +14,7 @@ model_dict = dict(
     BaseNet=BaseNet,
     EEGConformer=EEGConformer,
     EEGNet=EEGNet,
+    EEGTCNet=EEGTCNet,
     ShallowNet=ShallowNet,
     TSSEFFNet=TSSEFFNet
 )
