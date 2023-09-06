@@ -1,0 +1,30 @@
+# general
+dataset_name: "bcic2a"
+subject_ids: "all"  # either "all" or integer
+max_epochs: 2000
+seed: 0
+
+# preprocessing
+preprocessing:
+  sfreq: 250
+  low_cut: 4
+  high_cut: 40
+  start: 0.0
+  stop: 0.0
+  z_scale: True
+  batch_size: 72
+
+# model
+model: "EEGConformer"
+model_kwargs:
+  in_channels: 22
+  embedding_size: 40
+  depth: 6
+  n_classes: 4
+  interaug: True
+  lr: 0.0002
+  beta_1: 0.5
+  weight_decay: 0.0
+  optimizer: "adam"
+  scheduler: True
+  warmup_epochs: 20
