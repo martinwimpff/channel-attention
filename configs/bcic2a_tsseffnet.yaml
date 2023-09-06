@@ -1,0 +1,33 @@
+# general
+dataset_name: "bcic2a"
+subject_ids: "all"  # either "all" or integer
+max_epochs: 1000
+seed: 0
+
+# preprocessing
+preprocessing:
+  sfreq: 250
+  low_cut: 0
+  high_cut: 38
+  start: -0.5
+  stop: 0.0
+  z_scale: True
+  batch_size: 64
+
+# model
+model: "TSSEFFNet"
+model_kwargs:
+  in_channels: 22
+  n_classes: 4
+  reduction_ratio: 8
+  conv_stride: 1
+  pool_stride: 3
+  batch_norm: True
+  batch_norm_alpha: 0.1
+  drop_prob: 0.5
+  weight_init: "standard"
+  lr: 0.001
+  weight_decay: 0.01
+  optimizer: "adam"
+  scheduler: True
+  warmup_epochs: 20
