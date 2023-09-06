@@ -9,19 +9,21 @@ from braindecode.preprocessing import (
 )
 
 
-def load_bcic(subject_id: int, dataset: str = "2a", preprocessing_dict: Dict = None):
+def load_bcic(subject_id: int, dataset: str = "2a", preprocessing_dict: Dict = None,
+              verbose: str = "WARNING"):
     dataset_name = "BNCI2014001" if dataset == "2a" else "BNCI2014004"
     dataset = MOABBDataset(dataset_name, subject_ids=[subject_id])
 
     preprocessors = [
-        Preprocessor("pick_types", eeg=True, meg=False, stim=False),
+        Preprocessor("pick_types", eeg=True, meg=False, stim=False, verbose=verbose),
         Preprocessor(scale, factor=1e6, apply_on_array=True),
-        Preprocessor("resample", sfreq=preprocessing_dict["sfreq"])
+        Preprocessor("resample", sfreq=preprocessing_dict["sfreq"], verbose=verbose)
     ]
 
     l_freq, h_freq = preprocessing_dict["low_cut"], preprocessing_dict["high_cut"]
     if l_freq is not None or h_freq is not None:
-        preprocessors.append(Preprocessor("filter", l_freq=l_freq, h_freq=h_freq))
+        preprocessors.append(Preprocessor("filter", l_freq=l_freq, h_freq=h_freq,
+                                          verbose=verbose))
 
     preprocess(dataset, preprocessors)
 
