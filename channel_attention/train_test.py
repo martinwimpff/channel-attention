@@ -22,7 +22,6 @@ def train_and_test(config):
 
         # set up the trainer
         trainer = Trainer(
-            profiler="simple",
             max_epochs=config["max_epochs"],
             num_sanity_val_steps=0,
             accelerator="auto",
