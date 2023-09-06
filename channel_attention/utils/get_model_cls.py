@@ -1,8 +1,10 @@
 from channel_attention.models.eegnet import EEGNet
+from channel_attention.models.shallownet import ShallowNet
 
 
 model_dict = dict(
-    EEGNet=EEGNet
+    EEGNet=EEGNet,
+    ShallowNet=ShallowNet
 )
 
 
