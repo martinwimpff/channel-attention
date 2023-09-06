@@ -1,5 +1,5 @@
-from channel_attention.models.eegnet import EEGNet
-from channel_attention.models.shallownet import ShallowNet
+from channel_attention.models import EEGNet
+from channel_attention.models import ShallowNet
 
 
 model_dict = dict(

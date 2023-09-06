@@ -1,4 +1,4 @@
-from channel_attention.datamodules.bcic import BCICIV2a, BCICIV2b
+from channel_attention.datamodules import BCICIV2a, BCICIV2b
 
 
 def get_datamodule_cls(dataset_name):

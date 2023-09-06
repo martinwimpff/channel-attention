@@ -2,7 +2,7 @@ from einops.layers.torch import Rearrange
 import torch
 from torch import nn
 
-from channel_attention.models.classification_module import ClassificationModule
+from .classification_module import ClassificationModule
 from channel_attention.utils.weight_initialization import glorot_weight_zero_bias
 
 

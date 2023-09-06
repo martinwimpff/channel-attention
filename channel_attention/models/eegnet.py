@@ -2,8 +2,8 @@ from einops.layers.torch import Rearrange
 
 from torch import nn
 
-from channel_attention.models.classification_module import ClassificationModule
-from channel_attention.models.modules import Conv2dWithConstraint
+from .classification_module import ClassificationModule
+from .modules import Conv2dWithConstraint
 from channel_attention.utils.weight_initialization import glorot_weight_zero_bias
 
 
