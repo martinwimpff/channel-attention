@@ -1,0 +1,31 @@
+# general
+dataset_name: "bcic2b"
+subject_ids: "all"  # either "all" or integer
+max_epochs: 500
+seed: 0
+
+# preprocessing
+preprocessing:
+  sfreq: 250
+  low_cut: 0
+  high_cut: 40
+  start: 0.5
+  stop: -0.5  # 4.5 second trial -> [0.5, 4.0]
+  z_scale: True
+  batch_size: 64
+
+# model
+model: "ShallowNet"
+model_kwargs:
+  in_channels: 3
+  n_classes: 2
+  input_window_samples: 875
+  n_filters_time: 40
+  filter_time_length: 25
+  pool_time_length: 75
+  pool_time_stride: 15
+  drop_prob: 0.5
+  lr: 0.001
+  weight_decay: 0.0
+  optimizer: "adam"
+  scheduler: False
