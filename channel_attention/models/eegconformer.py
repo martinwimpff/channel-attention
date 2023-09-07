@@ -123,7 +123,7 @@ class _ClassificationHead(nn.Module):
             nn.Linear(256, 32),
             nn.ELU(),
             nn.Dropout(0.3),
-            nn.Linear(32, 4)
+            nn.Linear(32, n_classes)
         )
 
     def forward(self, x):
