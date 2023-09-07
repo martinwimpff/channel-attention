@@ -1,0 +1,47 @@
+# general
+dataset_name: "hgd"
+subject_ids: "all"  # either "all" or integer
+max_epochs: 1000
+seed: 0
+
+# preprocessing
+preprocessing:
+  sfreq: 250
+  low_cut: 4
+  high_cut: null
+  start: 0.0
+  stop: 0.0
+  remove_artifacts: True
+  z_scale: True
+  batch_size: 64
+
+# model
+model: "BaseNet"
+model_kwargs:
+  input_window_samples: 1000
+  n_channels: 44
+  n_temporal_filters: 40
+  temp_filter_length_inp: 25
+  spatial_expansion: 1
+  pool_length_inp: 75
+  pool_stride_inp: 15
+  dropout_inp: 0.5
+  ch_dim: 16
+  temp_filter_length: 15
+  pool_length: 8
+  pool_stride: 8
+  dropout: 0.5
+  n_classes: 4
+  # attention block
+  attention_mode: null
+  reduction_rate: 4
+  use_mlp: False
+  freq_idx: 0
+  n_codewords: 4
+  kernel_size: 9
+  extra_params: False
+  lr: 0.001
+  weight_decay: 0.0
+  optimizer: "adam"
+  scheduler: True
+  warmup_epochs: 20

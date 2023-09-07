@@ -1,0 +1,36 @@
+# general
+dataset_name: "hgd"
+subject_ids: "all"  # either "all" or integer
+max_epochs: 1000
+seed: 0
+
+# preprocessing
+preprocessing:
+  sfreq: 250
+  low_cut: 4
+  high_cut: null
+  start: 0.0
+  stop: 0.0
+  remove_artifacts: True
+  z_scale: True
+  batch_size: 64
+
+# model
+model: "EEGTCNet"
+model_kwargs:
+  n_classes: 4
+  in_channels: 44
+  layers: 2
+  kernel_s: 4
+  filt: 12
+  dropout: 0.3
+  activation: 'elu'
+  F1: 8
+  D: 2
+  kernLength: 32
+  dropout_eeg: 0.2
+  lr: 0.001
+  weight_decay: 0.0
+  optimizer: "adam"
+  scheduler: True
+  warmup_epochs: 20
