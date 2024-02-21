@@ -9,7 +9,7 @@ from braindecode.preprocessing import (
 )
 
 
-def load_bcic(subject_id: int, dataset: str = "2a", preprocessing_dict: Dict = None,
+def load_bcic4(subject_id: int, dataset: str = "2a", preprocessing_dict: Dict = None,
               verbose: str = "WARNING"):
     dataset_name = "BNCI2014001" if dataset == "2a" else "BNCI2014004"
     dataset = MOABBDataset(dataset_name, subject_ids=[subject_id])

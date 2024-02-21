@@ -1,0 +1,32 @@
+# general
+dataset_name: "bcic3"  # LOSO: bcic3_loso
+subject_ids: "all"  # either "all" or integer
+max_epochs: 500  # LOSO: 125
+seed: 0
+
+# preprocessing
+preprocessing:
+  sfreq: 100
+  low_cut: 0
+  high_cut: 40
+  channel_selection: True
+  start: 0.0
+  stop: 0.0
+  z_scale: True
+  batch_size: 28
+
+# model
+model: "ShallowNet"
+model_kwargs:
+  in_channels: 3
+  n_classes: 2
+  input_window_samples: 350
+  n_filters_time: 40
+  filter_time_length: 25
+  pool_time_length: 75
+  pool_time_stride: 15
+  drop_prob: 0.5
+  lr: 0.001
+  weight_decay: 0.0
+  optimizer: "adam"
+  scheduler: False

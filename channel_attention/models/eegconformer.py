@@ -112,12 +112,12 @@ class _TransformerEncoder(nn.Sequential):
 
 
 class _ClassificationHead(nn.Module):
-    def __init__(self, embedding_size: int, n_classes: int):
+    def __init__(self, embedding_size: int, n_classes: int, input_size_cls: int = 2440):
         super(_ClassificationHead, self).__init__()
         self.embedding_size = embedding_size
         self.n_classes = n_classes
         self.head = nn.Sequential(
-            nn.Linear(2440, 256),
+            nn.Linear(input_size_cls, 256),
             nn.ELU(),
             nn.Dropout(0.5),
             nn.Linear(256, 32),
@@ -134,7 +134,7 @@ class _ClassificationHead(nn.Module):
 
 class EEGConformerModule(nn.Module):
     def __init__(self, in_channels: int = 22, embedding_size: int = 40, depth: int = 6,
-                 n_classes: int = 4):
+                 n_classes: int = 4, input_size_cls: int = 2440):
         super(EEGConformerModule, self).__init__()
         self.embedding_size = embedding_size
         self.depth = depth
@@ -142,7 +142,8 @@ class EEGConformerModule(nn.Module):
         self.patch_embedding = _PatchEmbedding(in_channels, self.embedding_size)
         self.transformer_encoder = _TransformerEncoder(self.depth, self.embedding_size)
         self.classification_head = _ClassificationHead(self.embedding_size,
-                                                       self.n_classes)
+                                                       self.n_classes,
+                                                       input_size_cls=input_size_cls)
 
     def forward(self, x):
         x = self.patch_embedding(x)
@@ -153,6 +154,7 @@ class EEGConformerModule(nn.Module):
 
 class EEGConformer(ClassificationModule):
     def __init__(self, in_channels: int = 22, embedding_size: int = 40, depth: int = 6,
-                 n_classes: int = 4, **kwargs):
-        model = EEGConformerModule(in_channels, embedding_size, depth, n_classes)
+                 n_classes: int = 4, input_size_cls: int = 2440, **kwargs):
+        model = EEGConformerModule(in_channels, embedding_size, depth, n_classes,
+                                   input_size_cls)
         super(EEGConformer, self).__init__(model, n_classes, **kwargs)

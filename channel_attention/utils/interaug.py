@@ -7,10 +7,12 @@ def interaug(batch):
     new_samples = torch.zeros_like(x)
     new_labels = torch.zeros_like(y)
     current = 0
+    n_chunks = 8 if new_samples.shape[-1] % 8 == 0 else 7  # special case for BCIC III
     for cls in torch.unique(y):
         x_cls = x[y == cls]
-        chunks = torch.cat(torch.chunk(x_cls, chunks=8, dim=-1))
-        indices = np.random.choice(len(x_cls), size=(len(x_cls), 8), replace=True)
+        chunks = torch.cat(torch.chunk(x_cls, chunks=n_chunks, dim=-1))
+        indices = np.random.choice(len(x_cls), size=(len(x_cls), n_chunks),
+                                   replace=True)
         for idx in indices:
             # add offset
             idx += np.arange(0, chunks.shape[0], len(x_cls))

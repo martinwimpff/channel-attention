@@ -3,7 +3,7 @@ from typing import Optional
 import numpy as np
 
 from .base import BaseDataModule
-from channel_attention.utils.load_bcic import load_bcic
+from channel_attention.utils.load_bcic4 import load_bcic4
 
 
 class BCICIV2a(BaseDataModule):
@@ -14,7 +14,7 @@ class BCICIV2a(BaseDataModule):
         super(BCICIV2a, self).__init__(preprocessing_dict, subject_id)
 
     def prepare_data(self) -> None:
-        self.dataset = load_bcic(subject_id=self.subject_id, dataset="2a",
+        self.dataset = load_bcic4(subject_id=self.subject_id, dataset="2a",
                                  preprocessing_dict=self.preprocessing_dict)
 
     def setup(self, stage: Optional[str] = None) -> None:
