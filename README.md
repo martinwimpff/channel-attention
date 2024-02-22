@@ -2,6 +2,9 @@
 This is the official repository to the paper [EEG motor imagery decoding: A framework for comparative analysis with channel attention mechanisms](https://arxiv.org/abs/2310.11198).
 
 ## Usage
+### Data
+All data will be downloaded automatically except for the BCIC III dataset.
+Download the BCIC III dataset and put all files in the directory defined in [load_bcic3](channel_attention/utils/load_bcic3.py).
 ### Installation
 - clone this repository
 - run `pip install .` to install the `channel-attention` package
