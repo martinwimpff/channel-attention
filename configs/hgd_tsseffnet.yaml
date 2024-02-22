@@ -1,7 +1,7 @@
 # general
-dataset_name: "hgd"
+dataset_name: "hgd"  # LOSO: hgd_loso
 subject_ids: "all"  # either "all" or integer
-max_epochs: 1000
+max_epochs: 1000  # LOSO: 77
 seed: 0
 
 # preprocessing
@@ -31,4 +31,4 @@ model_kwargs:
   weight_decay: 0.01
   optimizer: "adam"
   scheduler: True
-  warmup_epochs: 20
+  warmup_epochs: 20  # LOSO: 2

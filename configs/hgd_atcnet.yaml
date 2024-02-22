@@ -1,7 +1,7 @@
 # general
-dataset_name: "hgd"
+dataset_name: "hgd"  # LOSO: hgd_loso
 subject_ids: "all"  # either "all" or integer
-max_epochs: 1000
+max_epochs: 1000  # LOSO: 77
 seed: 0
 
 # preprocessing

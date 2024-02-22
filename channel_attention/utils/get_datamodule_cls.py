@@ -1,5 +1,5 @@
 from channel_attention.datamodules import BCICIII_IVa, BCICIII_IVaLOSO, BCICIV2a, \
-    BCICIV2aLOSO, BCICIV2b, BCICIV2bLOSO, HighGamma
+    BCICIV2aLOSO, BCICIV2b, BCICIV2bLOSO, HighGamma, HighGammaLOSO
 
 
 def get_datamodule_cls(dataset_name):
@@ -17,6 +17,8 @@ def get_datamodule_cls(dataset_name):
         datamodule_cls = BCICIV2bLOSO
     elif dataset_name == "hgd":
         datamodule_cls = HighGamma
+    elif dataset_name == "hgd_loso":
+        datamodule_cls = HighGammaLOSO
     else:
         raise NotImplementedError(f"No dataset with name: {dataset_name}")
 

@@ -11,9 +11,9 @@ from braindecode.preprocessing import (
 import numpy as np
 
 
-def load_hgd(subject_id: int, preprocessing_dict: Dict = None,
+def load_hgd(subject_ids: list, preprocessing_dict: Dict = None,
              verbose: str = "WARNING"):
-    dataset = MOABBDataset(dataset_name="Schirrmeister2017", subject_ids=[subject_id])
+    dataset = MOABBDataset(dataset_name="Schirrmeister2017", subject_ids=subject_ids)
 
     if preprocessing_dict.get("remove_artifacts", True):
         # find samples < 800 uV and save masks for later
