@@ -1,5 +1,5 @@
 from channel_attention.datamodules import BCICIII_IVa, BCICIII_IVaLOSO, BCICIV2a, \
-    BCICIV2b, HighGamma
+    BCICIV2b, BCICIV2bLOSO, HighGamma
 
 
 def get_datamodule_cls(dataset_name):
@@ -11,6 +11,8 @@ def get_datamodule_cls(dataset_name):
         datamodule_cls = BCICIV2a
     elif dataset_name == "bcic2b":
         datamodule_cls = BCICIV2b
+    elif dataset_name == "bcic2b_loso":
+        datamodule_cls = BCICIV2bLOSO
     elif dataset_name == "hgd":
         datamodule_cls = HighGamma
     else:
