@@ -1,5 +1,6 @@
 # EEG motor imagery decoding: A framework for comparative analysis with channel attention mechanisms
 This is the official repository to the paper [EEG motor imagery decoding: A framework for comparative analysis with channel attention mechanisms](https://arxiv.org/abs/2310.11198).
+The model is also integrated in [braindecode](https://github.com/braindecode/braindecode/blob/master/braindecode/models/attentionbasenet.py).
 
 ## Usage
 ### Data
