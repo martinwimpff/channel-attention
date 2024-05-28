@@ -17,10 +17,10 @@ _Note: you can also use poetry for the installation_
 ## Citation
 If you find this repository useful, please cite our work
 ```
-@article{wimpff2023eeg,
+@article{wimpff2024eeg,
   title={EEG motor imagery decoding: A framework for comparative analysis with channel attention mechanisms},
   author={Wimpff, Martin and Gizzi, Leonardo and Zerfowski, Jan and Yang, Bin},
   journal={Journal of Neural Engineering},
-  year={2023}
+  year={2024}
 }
 ```
